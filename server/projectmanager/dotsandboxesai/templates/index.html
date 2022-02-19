@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            font-family:monospace;
+            font-size: 30px;
+            background-color:rgb(211, 240, 216);
+        }
+
+        .red{
+            background-color: rgb(181, 25, 38);
+        }
+        .blue{
+            background-color: rgb(7, 75, 166);
+        }
+
+        #turn{
+            
+            font-family:monospace;
+            font-size: 50px;
+        }
+        
+        select{
+            font-family:monospace;
+            height: 30px;
+            font-size: 20px;
+        }
+
+        #cntBtn{
+            background-color:rgb(189, 217, 190);
+            height: 30px;
+            width: 100px;
+            font-family:monospace;
+            font-size: 17px;
+        }
+
+        .btns{
+            background-color:rgb(189, 217, 190);
+            height: 30px;
+            width: 70px;
+            font-family:monospace;
+            font-size: 17px;
+        }
+
+        #divListaPoteza{
+            padding-left: 10px;
+            font-size: 20px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div style="display:flex; justify-content: space-between; height: 100vh;">
+        <div style="margin-left: 100px; margin-top: 100px;">
+            <div id="pocetna">
+                <div id="continueButton" style="display: none;"><button id="cntBtn" onclick="goContinue()">CONTINUE</button></div>
+                
+                <div>
+                    <label for="velicinaTable">Table dimensions:</label>
+                    <select name="velicinaTable" id="velicinaTable">
+                        <option value="3">3x3</option>
+                        <option value="4">4x4</option>
+                        <option value="5">5x5</option>
+                        <option value="6">6x6</option>
+                        <option value="7">7x7</option>
+                        <option value="8">8x8</option>
+                        <option value="9">9x9</option>
+                    </select>
+                </div>
+
+                    <div>
+                    <label for="modIgre">Select game mode :</label>
+                    <select name="modIgre" id="modIgre">
+                        <option value="PvsAI">Player vs AI</option>
+                        <option value="PvsP">Player vs Player</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="tezina">Select AI difficulty :</label>
+                    <select name="tezina" id="tezina">
+                        <option value="easy">Easy</option>
+                        <option value="intermediate">Intermediate</option>
+                        <option value="hard">Hard</option>
+                    </select>
+                </div>  
+
+                <button class="btns" onclick="pocni()">START!</button>
+            </div>
+            
+            <div id="backButton" style="display: none; margin-bottom: 30px;"><button class="btns" onclick="goBack()">BACK</button></div>
+            
+            <div style="display: flex;">
+                <label for="player1Score">Player1 points : </label>
+                <div id="player1Score">0</div>
+            </div>
+
+            <div style="display: flex;">
+                <label for="player2Score">Player2 points : </label>
+                <div id="player2Score">0</div>
+            </div>
+            
+            <div style="display: flex;">
+                <label for="winner">Winner :</label>
+                <div id="winner"></div>
+            </div>
+
+            <div class="info">
+                <div id="turn"></div>
+            </div>
+
+        </div>
+
+        <div style="margin-right: 50px; margin-top: 20px; display: flex;">
+            <div id="container" style="width: 650px; height: 650px;"></div>
+        
+            
+            <div id="divListaPoteza" style="margin-left:50px; overflow-y: scroll; height: 600px; width: 200px; margin-top: 50px; background-color: rgb(176, 174, 158); display: none;">
+                <p>List of moves:</p>
+                <ol id="listaPoteza">
+                </ol>
+            </div>
+            
+        </div>
+
+    </div>
+
+    {% load static %}
+    <script src="{% static '../static/main.js' %}"></script>
+</body>
+</html>
